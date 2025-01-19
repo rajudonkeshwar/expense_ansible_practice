@@ -51,7 +51,7 @@
       dest: /etc/systemd/system/backend.service
 
 
-
+  
   - name: install python libs
     ansible.builtin.pip:
       name: "{{ item }}"
@@ -62,14 +62,14 @@
 
 
 
-    - name: import mysql data
-    community.mysql.mysql_db:
-      state: import
-      name: all
-      login_user: root
-      login_password: ExpenseApp@1
-      login_host: mysql.daws82s.online
-      target: /app/schema/backend.sql
+  - name: import mysql data
+  community.mysql.mysql_db:
+    state: import
+    name: all
+    login_user: root
+    login_password: ExpenseApp@1
+    login_host: mysql.daws82s.online
+    target: /app/schema/backend.sql
 
   - name: daemon reload and restart service
     ansible.builtin.systemd_service:

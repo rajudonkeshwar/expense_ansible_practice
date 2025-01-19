@@ -4,7 +4,7 @@
   vars:
     mysql_root_password: ExpenseApp@1
     host_server: mysql.vijaychandra.site
-    mysql_user: root
+
 
 
   tasks:
@@ -37,6 +37,15 @@
       login_user: "{{ mysql_user }}"
       login_password: "{{ mysql_root_password }}"
       state: present
+
+
+  - name: connect to mysql server
+    community.mysql.mysql_info:
+      login_user: root
+      login_password: "{{ mysql_root_password }}"
+      login_host: "{{ host_server }}"
+      register: mysql_info
+      ignore_errors: true
 
 
   

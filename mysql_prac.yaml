@@ -28,17 +28,6 @@
       state: started
       enabled: yes
 
-  - name: Set root user password
-    mysql_user: 
-      name: root
-      host: "{{ host_server }}"
-      password: "{{ mysql_root_password }}"
-      check_implicit_admin: yes
-      login_user: "{{ mysql_user }}"
-      login_password: "{{ mysql_root_password }}"
-      state: present
-
-
   - name: connect to mysql server
     community.mysql.mysql_info:
       login_user: root

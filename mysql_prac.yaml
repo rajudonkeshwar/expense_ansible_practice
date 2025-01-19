@@ -6,11 +6,7 @@
 
 
   tasks:
-  # - name: Install MySQL server
-  #   ansible.builtin.package:
-  #     name: mysql-server
-  #     state: present
-  - name: installing my sql url
-    ansible.builtin.get_url:
-      url: http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm 
-      dest: /opt/expense_ansible_practice
+  - name: Install MySQL server
+    ansible.builtin.package:
+      name: mysql-server
+      state: present
